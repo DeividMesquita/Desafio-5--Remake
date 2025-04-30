@@ -1,0 +1,854 @@
+:root {
+    /* Definindo as variáveis de cores */
+
+    --color-hover: #4949DB;
+    --color-text-carrousel: #F7F7F7;
+    /* --unnamed-color-3838a8: #3838A8; */
+    --banner-acc: #272775;
+    --header-footer-form: #161642;
+    --black-bg: #05050F;
+    --primary-yellow: #DDD627;
+    --default-white: #FFFFFF;
+    --error-red: #FF7978;
+}
+
+* {
+    /* Resetando o padding e margin de todos os elementos */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-color: var(--black-bg) !important;
+}
+
+/*HEADER*/
+
+.navbar {
+    background-color: var(--header-footer-form);
+    height: 6.25rem;
+}
+
+/* Estilo do Header */
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar__menu--logo {
+    /* Alinhamento do logo à esquerda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo da lista não ordenada */
+.navbar__list--links {
+    /* Alinhamento dos links à direita */
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__list--links li a {
+    /* Estilo dos links */
+    text-decoration: none;
+    font-size: 1.3125rem;
+    line-height: 1.5625rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+}
+
+.navbar__list--links li a:hover {
+    /* Efeito de hover nos links */
+    color: var(--color-hover);
+    transition: 0.6s ease;
+}
+
+.navbar__menu--mobile {
+    /* Estilo do ícone hambúrguer */
+    display: none;
+    cursor: pointer;
+    color: var(--primary-yellow);
+    font-size: 2rem;
+    z-index: 1000;
+    transition: color 0.6s ease;
+}
+
+/* Estilo do Off-Canvas */
+.navbar__menu--offcanvas {
+    
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 18.125rem;
+    height: 21.4375rem;
+    background-color: var(--header-footer-form);
+    box-shadow: -0.25rem 0 0.5rem rgba(0, 0, 0, 0.5);
+    border-radius: 0px 0px 0px 1rem;
+    transition: right 0.5s ease-in-out;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.navbar__menu--offcanvas.active {
+    /* Estilo do Off-Canvas quando ativo */
+    right: 0;
+}
+
+.navbar__offcanvas--header {
+    /* Estilo do cabeçalho do Off-Canvas */
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    color: var(--primary-yellow);
+    cursor: pointer;
+}
+
+.navbar__menu--offcanvas .navbar__offcanvas--links {
+    /* Estilo da lista de links do Off-Canvas */
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.navbar__menu--offcanvas .navbar__offcanvas--links li a {
+    /* Estilo dos links do Off-Canvas */
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: var(--primary-yellow);
+    transition: color 0.6s ease;
+}
+
+.navbar__menu--offcanvas .navbar__offcanvas--links li a:hover {
+    color: var(--color-hover);
+}
+
+/* Section carousel vertical */
+
+.carousel__container {
+    /* Estilo do contêiner do carrossel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel__item {
+    /* Estilo do item do carrossel */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 980px;
+    position: relative;
+}
+
+.carousel__item--content {
+    /* Estilo do conteúdo do item do carrossel */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    position: relative;
+    /* Garante que o conteúdo fique acima do degradê */
+    z-index: 2;
+    /* Coloca o conteúdo acima do degradê */
+}
+
+.carousel__item--title h1 {
+    font-size: 4.5rem;
+    line-height: 5rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text-carrousel);
+}
+
+.carousel__item--button button {
+    /* Estilo do botão do item do carrossel */
+    padding: 0.6875rem 1.125rem 0.625rem 1.125rem;
+    border-radius: 2.25rem;
+    border: none;
+    background-color: var(--primary-yellow);
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    font-weight: 600;
+}
+
+.carousel__item--button button:hover {
+    /* Efeito de hover no botão do item do carrossel */
+    background-color: var(--color-hover);
+    transition: 0.6s ease;
+    color: var(--color-text-carrousel);
+}
+
+.carousel__item--shadow {
+    /* Estilo do degradê do item do carrossel */
+    position: absolute;
+    bottom: -1px;
+    /* Posiciona o degradê no bottom da imagem */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Coloca o degradê abaixo do conteúdo */
+}
+
+.carousel__item--shadow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Adiciona o efeito de desfoque */
+}
+
+.carousel-dots {
+    /* Estilo dos pontos do carrossel */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    gap: 1.875rem;
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+}
+
+.carousel-dots .owl-dot {
+    background-color: transparent !important;
+    border: 1px solid var(--primary-yellow) !important;
+    border-radius: 50%;
+    width: 1.875rem;
+    height: 1.875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.carousel-dots .owl-dot span {
+    min-width: 0.625rem;
+    min-height: 1.1875rem;
+    font-weight: 700;
+    font-family: Raleway, sans-serif;
+    color: var(--primary-yellow) !important;
+    text-align: center;
+}
+
+.carousel-dots .owl-dot.active {
+    background-color: var(--primary-yellow) !important;
+}
+
+.carousel-dots .owl-dot.active span {
+    color: var(--color-hover) !important;
+}
+
+.carousel-dots .owl-dot:hover {
+    background-color: var(--primary-yellow) !important;
+    transition: 0.6s ease;
+}
+
+.carousel-dots .owl-dot:hover span {
+    color: var(--color-hover) !important;
+    transition: 0.6s ease;
+}
+
+.carousel__arrow {
+    /* Estilo das seta do carrossel */
+    position: absolute;
+    bottom: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.carousel__arrow img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.carousel__arrow img:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* Section Sobre os cavaleiros de Atena */
+
+.about__content {
+    /* Estilo do conteúdo da seção "Sobre os Cavaleiros de Atena" */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem !important;
+}
+
+.about__content--title h1 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    margin: 0;
+    text-align: center;
+}
+
+.about__content--text p {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+    color: var(--default-white);
+    margin: 0;
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.accordion__content {
+    /* Estilo do conteúdo da seção "Acordeão" */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem !important;
+}
+
+.accordion__content--title h1 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    margin: 0;
+    text-align: center;
+}
+
+.accordion {
+    /* Estilo do acordeão */
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    gap: 1.25rem;
+}
+
+.accordion-item {
+    /* Estilo do item do acordeão */
+    background-color: var(--banner-acc) !important;
+    border-radius: 0.625rem !important;
+    border: none !important;
+}
+
+.accordion-item>.accordion-header .accordion-button {
+    border-radius: 0.625rem !important;
+}
+
+.accordion-button {
+    /* Estilo do botão do acordeão */
+    font-size: 1.3125rem !important;
+    line-height: 1.6875rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-yellow) !important;
+    margin: 0;
+    background-color: var(--header-footer-form) !important;
+    border: none !important;
+    padding: 1.5rem !important;
+}
+
+/** Estilo do botão do acordeão quando colapsado */
+.accordion-button:not(.collapsed) {
+    box-shadow: none !important;
+}
+
+.accordion-button::after {
+    /* Estilo do ícone do acordeão */
+    background-image: url("/assets/img/seta\ acordeon\ e\ fancybox.svg") !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.accordion-body {
+    padding: 1.5rem !important;
+}
+
+.accordion-body p {
+    font-size: 1rem !important;
+    line-height: 1.1875rem !important;
+    color: var(--default-white) !important;
+    text-align: left !important;
+    margin: 0;
+
+}
+
+/* Section dos 12 cavaleiros de ouro*/
+
+.golden {
+    margin-top: 5.125rem;
+}
+
+.golden__wrapper {
+    /* Estilo do contêiner da seção "Cavaleiros de Ouro" */
+    margin-top: 1.5rem;
+    position: relative;
+    width: 100%;
+}
+
+.golden__content--title h1 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    margin: 0;
+    text-align: center;
+}
+
+.golden__item {
+    /* Estilo do item da seção "Cavaleiros de Ouro" */
+    max-width: 11.875rem;
+}
+
+.golden__item img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.golden__item--overlay {
+    /* Estilo do overlay da imagem */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+.golden__item--shadow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.golden__item h2 {
+    font-size: 1.3125rem;
+    line-height: 1.5625rem;
+    font-weight: 700;
+    color: var(--default-white);
+    text-align: center;
+    margin: 0px 16px 16px 16px;
+    position: relative;
+    z-index: 2;
+
+}
+
+.golden__wrapper--shadow {
+    position: absolute;
+    right: -10px;
+    top: 0;
+    height: 100%;
+    width: 20%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+
+/* Casas dos Cavaleiros de Ouro */
+
+.houses {
+    margin-top: 5.125rem;
+}
+
+.houses__wrapper {
+    /* Estilo do contêiner da seção "Cavaleiros de Ouro" */
+    margin-top: 1.5rem;
+    position: relative;
+    width: 100%;
+}
+
+.houses__content--title h1 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    margin: 0;
+    text-align: center;
+}
+
+.houses__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.houses__item a {
+    display: block;
+    /* Garante que o link se comporte como um bloco */
+    width: 100%;
+    /* Faz o link ocupar toda a largura disponível */
+    height: auto;
+}
+
+.fancybox__caption span {
+    /* Estilo do título da legenda do Fancybox */
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    text-align: left;
+}
+
+.fancybox__caption {
+    /* Estilo da legenda do Fancybox */
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    color: var(--default-white);
+    font-weight: 500;
+    margin: 0;
+    margin-top: 1rem;
+}
+
+.houses__item img {
+    max-height: 28.75rem;
+    object-fit: cover;
+    border-radius: 0.625rem;
+}
+
+.houses__item span {
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    text-align: left
+}
+
+.houses__item p {
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    color: var(--default-white);
+    font-weight: 500;
+    margin: 0;
+    margin-top: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.houses-owl-nav {
+    /* Estilo dos botões de navegação do carrossel */
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    position: absolute !important;
+    top: 40% !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    pointer-events: none !important;
+}
+
+.houses-owl-nav button {
+    pointer-events: all;
+    background-color: var(--default-white) !important;
+    border: none !important;
+    border-radius: 50% !important;
+    width: 1.875rem !important;
+    height: 1.875rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.icon svg {
+    /* Estilo do ícone dentro do botão de navegação */
+    fill: var(--black-bg);
+    /* Cor do ícone */
+    transition: fill 0.3s ease;
+}
+
+.houses-owl-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.houses-owl-dots .owl-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: transparent !important;
+    border: 1px solid var(--primary-yellow) !important;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.houses-owl-dots .owl-dot.active {
+    background-color: var(--primary-yellow) !important;
+}
+
+.houses-owl-dots .owl-dot:hover {
+    background-color: var(--primary-yellow) !important;
+    transition: 0.6s ease;
+}
+
+/* Fomulario */
+.forms__content {
+    /* Estilo do conteúdo do formulário */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5rem !important;
+}
+
+.forms__content--title h1 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+    color: var(--primary-yellow);
+    margin: 0;
+    text-align: center;
+}
+
+.forms__content--form {
+    /* Estilo do formulário */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.form-control {
+    /* Estilo dos campos de entrada do formulário */
+    background-color: var(--header-footer-form) !important;
+    border: none !important;
+    border-radius: 0.5rem !important;
+    font-size: 1rem !important;
+    line-height: 1.1875rem !important;
+    font-weight: 500 !important;
+    color: var(--default-white) !important;
+    height: 2.5rem !important;
+}
+
+.form-control:focus {
+    /* Estilo do campo de entrada quando em foco */
+    background-color: var(--header-footer-form) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.form-label {
+    /* Estilo do rótulo do campo de entrada */
+    font-size: 1rem !important;
+    line-height: 1.1875rem !important;
+    color: var(--default-white) !important;
+    font-weight: 500 !important;
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+}
+
+.form__input--error {
+    /* Estilo do campo de entrada quando há erro */
+    font-size: 1rem !important;
+    line-height: 1.1875rem !important;
+    font-weight: 500 !important;
+    color: var(--error-red) !important;
+    height: 2.5rem !important;
+    margin-top: 0.625rem !important;
+    display: none;
+}
+
+.form__button--submit {
+    /* Estilo do botão de envio do formulário */
+    padding: 0.6875rem 1.125rem 0.625rem 1.125rem;
+    border-radius: 2.25rem;
+    border: none;
+    background-color: var(--primary-yellow);
+    font-size: 1rem;
+    line-height: 1.1875rem;
+    font-weight: 600;
+}
+
+.form__button--submit:hover {
+    /* Efeito de hover no botão de envio do formulário */
+    background-color: var(--color-hover);
+    transition: 0.6s ease;
+    color: var(--color-text-carrousel);
+}
+
+/* Footer */
+
+.footer {
+    background: #0d0c35;
+    margin-top: 6.25rem;
+}
+
+.footer__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 17.6875rem;
+    flex-wrap: wrap;
+}
+
+.footer__logo img {
+    width: 120px;
+}
+
+.footer__menus {
+    display: flex;
+    gap: 12.625rem;
+    margin-right: 18.75rem;
+}
+
+.footer__list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer__list ul li {
+    margin-bottom: 1.5rem;
+}
+
+.footer__list ul li a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.footer__list ul li a:hover {
+    color: var(--color-hover);
+}
+
+
+
+
+@media (max-width: 1200px) {
+    .navbar__list--links {
+        display: none;
+    }
+
+    .navbar__menu--mobile {
+        display: block;
+        /* Exibe o ícone hambúrguer */
+    }
+}
+
+@media(max-width: 767px) {
+    .navbar {
+        height: 5rem;
+    }
+
+    .navbar__menu--logo img {
+        height: 2.5rem;
+    }
+
+    .carousel__item {
+        height: 1053px;
+    }
+
+    .carousel-dots {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        top: 20%;
+        transform: translateY(-50%);
+    }
+
+    .carousel__arrow {
+        bottom: 5rem;
+    }
+
+    .footer__content {
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .footer__menus {
+        gap: 40px;
+    }
+}
+
+@media(max-width: 576px) {
+
+    .navbar {
+        height: 3.75rem;
+    }
+
+    .carousel-dots {
+        top: 15%;
+    }
+
+    .carousel__item {
+        height: 752px;
+    }
+
+    .carousel__item--title h1 {
+        font-size: 3rem;
+        line-height: 3.75rem;
+    }
+
+    .carousel__arrow {
+        bottom: 1rem;
+    }
+
+    .about__content--title h1 {
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+    }
+
+    .accordion__content--title h1 {
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+    }
+
+    .golden__content--title h1 {
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+    }
+
+    .houses__content--title h1 {
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+    }
+
+
+    .forms__content--title h1 {
+        font-size: 1.5rem;
+        line-height: 1.8125rem;
+    }
+
+    .footer__content {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        height: 25.0625rem;
+    }
+
+    .footer__menus {
+        flex-direction: column;
+        gap: 0rem;
+        margin: 0;
+    }
+
+}
