@@ -371,7 +371,7 @@ body {
 
 .accordion-button::after {
     /* Estilo do ícone do acordeão */
-    background-image: url("assets/img/seta-acordeon-e-fancybox.svg") !important;
+    background-image: url("/Desafio-5--Remake/assets/img/seta-acordeon-e-fancybox.svg") !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
