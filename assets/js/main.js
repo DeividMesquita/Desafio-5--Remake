@@ -1,4 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", () => {
+    
 
     const menuToggle = document.getElementById("menu-toggle");
     const menuClose = document.getElementById("menu-close");
