@@ -84,7 +84,7 @@ body {
 
 /* Estilo do Off-Canvas */
 .navbar__menu--offcanvas {
-    
+
     display: none;
     position: fixed;
     top: 0;
@@ -179,7 +179,7 @@ body {
     color: var(--color-text-carrousel);
 }
 
-.carousel__item--button button {
+.carousel__item--button a {
     /* Estilo do botão do item do carrossel */
     padding: 0.6875rem 1.125rem 0.625rem 1.125rem;
     border-radius: 2.25rem;
@@ -188,13 +188,14 @@ body {
     font-size: 1rem;
     line-height: 1.1875rem;
     font-weight: 600;
+    cursor: pointer;
 }
 
-.carousel__item--button button:hover {
+.carousel__item--button a:hover {
     /* Efeito de hover no botão do item do carrossel */
     background-color: var(--color-hover);
     transition: 0.6s ease;
-    color: var(--color-text-carrousel);
+    color: var(--color-text-carrousel) !important;
 }
 
 .carousel__item--shadow {
@@ -297,7 +298,7 @@ body {
     margin-top: 5rem !important;
 }
 
-.about__content--title h1 {
+.--title {
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
@@ -322,15 +323,6 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 5rem !important;
-}
-
-.accordion__content--title h1 {
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-    font-weight: 700;
-    color: var(--primary-yellow);
-    margin: 0;
-    text-align: center;
 }
 
 .accordion {
@@ -403,18 +395,15 @@ body {
     width: 100%;
 }
 
-.golden__content--title h1 {
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-    font-weight: 700;
-    color: var(--primary-yellow);
-    margin: 0;
-    text-align: center;
-}
+
 
 .golden__item {
     /* Estilo do item da seção "Cavaleiros de Ouro" */
     max-width: 11.875rem;
+}
+
+.golden__item figure {
+    margin: 0;
 }
 
 .golden__item img {
@@ -472,15 +461,6 @@ body {
     margin-top: 1.5rem;
     position: relative;
     width: 100%;
-}
-
-.houses__content--title h1 {
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-    font-weight: 700;
-    color: var(--primary-yellow);
-    margin: 0;
-    text-align: center;
 }
 
 .houses__item {
@@ -573,6 +553,8 @@ body {
     align-items: center !important;
     cursor: pointer !important;
     transition: background-color 0.3s ease !important;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 .icon svg {
@@ -616,15 +598,6 @@ body {
     margin-top: 5rem !important;
 }
 
-.forms__content--title h1 {
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-    font-weight: 700;
-    color: var(--primary-yellow);
-    margin: 0;
-    text-align: center;
-}
-
 .forms__content--form {
     /* Estilo do formulário */
     display: flex;
@@ -644,6 +617,7 @@ body {
     font-weight: 500 !important;
     color: var(--default-white) !important;
     height: 2.5rem !important;
+    color-scheme: dark !important;
 }
 
 .form-control:focus {
@@ -652,6 +626,7 @@ body {
     border: none !important;
     box-shadow: none !important;
 }
+
 
 .form-label {
     /* Estilo do rótulo do campo de entrada */
@@ -663,6 +638,7 @@ body {
     margin-top: 0 !important;
     text-align: left !important;
     white-space: nowrap !important;
+
 }
 
 .form__input--error {
@@ -771,7 +747,7 @@ body {
         flex-direction: row !important;
         justify-content: flex-start !important;
         align-items: center !important;
-        top: 20%;
+        top: 10rem;
         transform: translateY(-50%);
     }
 
@@ -789,14 +765,14 @@ body {
     }
 }
 
-@media(max-width: 576px) {
+@media(max-width: 657px) {
 
     .navbar {
         height: 3.75rem;
     }
 
     .carousel-dots {
-        top: 15%;
+        top: 5rem;
     }
 
     .carousel__item {
@@ -812,28 +788,7 @@ body {
         bottom: 1rem;
     }
 
-    .about__content--title h1 {
-        font-size: 1.5rem;
-        line-height: 1.8125rem;
-    }
-
-    .accordion__content--title h1 {
-        font-size: 1.5rem;
-        line-height: 1.8125rem;
-    }
-
-    .golden__content--title h1 {
-        font-size: 1.5rem;
-        line-height: 1.8125rem;
-    }
-
-    .houses__content--title h1 {
-        font-size: 1.5rem;
-        line-height: 1.8125rem;
-    }
-
-
-    .forms__content--title h1 {
+    .--title {
         font-size: 1.5rem;
         line-height: 1.8125rem;
     }

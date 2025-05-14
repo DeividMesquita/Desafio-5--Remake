@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     display: [
                         { id: "counter", position: "left" },
                         { id: "close", position: "right" },
+                        { id: "fullscreen", position: "right" },
                     ],
                 },
             });
