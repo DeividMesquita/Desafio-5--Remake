@@ -144,6 +144,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
 }
 
 .carousel__item {
@@ -224,8 +225,8 @@ body {
     justify-content: center !important;
     align-items: flex-end !important;
     gap: 1.875rem;
-    position: absolute;
-    top: 45%;
+    position: relative;
+    bottom: 36rem;
     transform: translateY(-50%);
 }
 
@@ -477,6 +478,7 @@ body {
     width: 100%;
     /* Faz o link ocupar toda a largura disponível */
     height: auto;
+    text-decoration: none;
 }
 
 .fancybox__caption span {
@@ -512,7 +514,7 @@ body {
     text-align: left
 }
 
-.houses__item p {
+.houses__item figcaption {
     font-size: 1rem;
     line-height: 1.1875rem;
     color: var(--default-white);
@@ -525,6 +527,8 @@ body {
     -webkit-line-clamp: 3;
     line-clamp: 3;
     -webkit-box-orient: vertical;
+    text-align: left;
+
 }
 
 .houses-owl-nav {
@@ -747,8 +751,7 @@ body {
         flex-direction: row !important;
         justify-content: flex-start !important;
         align-items: center !important;
-        top: 10rem;
-        transform: translateY(-50%);
+        bottom: 56rem;
     }
 
     .carousel__arrow {
@@ -772,7 +775,7 @@ body {
     }
 
     .carousel-dots {
-        top: 5rem;
+        bottom: 42rem;
     }
 
     .carousel__item {
