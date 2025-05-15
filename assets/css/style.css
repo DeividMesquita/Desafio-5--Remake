@@ -144,7 +144,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
 }
 
 .carousel__item {
@@ -156,8 +155,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 980px;
-    position: relative;
+    height: 61.25rem;
 }
 
 .carousel__item--content {
@@ -272,7 +270,7 @@ body {
 .carousel__arrow {
     /* Estilo das seta do carrossel */
     position: absolute;
-    bottom: 10rem;
+    bottom: 22rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -755,7 +753,7 @@ body {
     }
 
     .carousel__arrow {
-        bottom: 5rem;
+        bottom: 14rem;
     }
 
     .footer__content {
@@ -788,7 +786,7 @@ body {
     }
 
     .carousel__arrow {
-        bottom: 1rem;
+        bottom: 6rem;
     }
 
     .--title {
